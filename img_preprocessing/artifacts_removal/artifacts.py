@@ -146,7 +146,7 @@ def laplasian_of_gaussian(image):
     return cv2.cvtColor(final, cv2.COLOR_BGR2RGB)
 
 
-def clean_artifacts_remaining(image):
+def clean_remaining_artifacts(image):
     """
     Method still on development. Use at own risk!
     Remove artifacts from image

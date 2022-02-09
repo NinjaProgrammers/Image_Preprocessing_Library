@@ -2,7 +2,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-import math
 
 HEXAGON_KERNEL_5X5 = np.array([[0, 1, 1, 1, 0], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [0, 1, 1, 1, 0]],
                               np.uint8)
