@@ -149,7 +149,7 @@ def laplasian_of_gaussian(image):
 def clean_remaining_artifacts(image):
     """
     Method still on development. Use at own risk!
-    Remove artifacts from image
+    Remove remaining artifacts from image
     :param image: Path to Image or 3D Matrix representing RGB image
     :return: Image
     """

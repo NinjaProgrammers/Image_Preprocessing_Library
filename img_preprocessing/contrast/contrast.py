@@ -46,7 +46,7 @@ def automatic_brightness_and_contrast(image, clip_histogram_percent=25):
     Automatic contrast and image brightness calculated by cumulative function on image histogram
     :param image: Path to Image or 3D Matrix representing RGB image
     :param clip_histogram_percent:
-    :return:
+    :return: Image with contrast and brightness enhanced
     """
 
     original, _, _, _, gray = __image__(image)
