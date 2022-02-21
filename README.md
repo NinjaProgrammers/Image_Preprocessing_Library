@@ -92,8 +92,8 @@ modulo estan enfocadas en remover los artefactos utilizando distintas tecnicas:
 Ejemplo de uso:
 
 ```python
-from img_preprocessing import artifacts_removal
-from img_preprocessing.utils import CIRCLE_KERNEL_5X5 as cc5
+from dermoscopy_preprocessing import artifacts_removal
+from dermoscopy_preprocessing.utils import CIRCLE_KERNEL_5X5 as cc5
 
 
 artifacts_removal.laplasian_of_gaussian("path/to/image")
@@ -189,9 +189,9 @@ imagen, que serı́a la lesión. Se encuentran los métodos:
 Ejemplo de uso:
 
 ```python
-from img_preprocessing import contrast
-from img_preprocessing.utils import WEIGTHS
-from img_preprocessing.utils import CIRCLE_KERNEL_3X3, RHOMB_KERNEL_3X3
+from dermoscopy_preprocessing import contrast
+from dermoscopy_preprocessing.utils import WEIGTHS
+from dermoscopy_preprocessing.utils import CIRCLE_KERNEL_3X3, RHOMB_KERNEL_3X3
 
 
 contrast.equalize_histogram("path/to/image")
@@ -239,8 +239,8 @@ Se encuentran los métodos:
 Ejemplo de uso:
 
 ```python
-from img_preprocessing import edges
-from img_preprocessing.utils import SHARPEN_KERNEL
+from dermoscopy_preprocessing import edges
+from dermoscopy_preprocessing.utils import SHARPEN_KERNEL
 
 # retorna la imagen con los brdes resaltados usando el laplaciano
 edges.laplacian("path/to/image")
@@ -275,7 +275,7 @@ Se encuentran los métodos:
 Ejemplo de uso:
 
 ```python
-from img_preprocessing import ilumination
+from dermoscopy_preprocessing import ilumination
 
 # retorna la imagen con el brillo mejorado utilizando la multiplicacion en el espacio logaritmico
 ilumination.mul_log_brightness_enhancement("path/to/image", factor= 4)
@@ -303,7 +303,7 @@ algunos como ejemplo en los metodos anteriores
 Ejemplo de uso:
 
 ```python
-from img_preprocessing.utils import CIRCLE_KERNEL_5X5
+from dermoscopy_preprocessing.utils import CIRCLE_KERNEL_5X5
 ```
 
 ## License

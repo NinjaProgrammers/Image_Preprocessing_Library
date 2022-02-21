@@ -8,7 +8,7 @@ LONG_DESCRIPTION = (HERE / "README.md" ).read_text(encoding='utf-8')
 LONG_DESCRIPTION_TYPE = "text/markdown"
 
 setup(
-    name="img_preprocessing",
+    name="dermoscopy_preprocessing",
     version=VERSION,
     author="Claudia Olavarrieta Martinez, Marcos A. Valdivie Rodriguez, Luis E. Dalmau Coopat",
     author_email="<claudiaomtnez@gmail.com>,<mavaldivie98@gmail.com>,<luke.dalmau@gmail.com>",
