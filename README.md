@@ -81,14 +81,14 @@ módulo están enfocadas en remover los artefactos utilizando distintas técnica
     >   **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar bothat
     >
 - Laplaciano de Gauss (laplasian_of_gaussian)
-    >  El metodo Laplaciano de Gauss se aplica a cada canal. Se realiza una dilatacion seguida por una 
+    >  El método Laplaciano de Gauss se aplica a cada canal. Se realiza una dilatacion seguida por una 
        erosion y luego se mezclan los resultados de cada canal.
     >
     >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB
     >
     >   **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar Laplacian of Gaussian
 - Limpieza de artefactos restantes (clean_remaining_artifacts)
-    > **Metodo aún en desarrollo. Use con cautela.**
+    > **Método aún en desarrollo. Use con cautela.**
     >   Elimina artefactos restantes utilizando operaciones morfológicas
     >
     >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB
