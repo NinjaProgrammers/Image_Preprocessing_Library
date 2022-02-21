@@ -20,11 +20,17 @@ de imágenes no se han comprobado.
 
 ## Instalación
 
-Como aún está en progreso el desarrollo de la biblioteca solo se ofrece una version de prueba en testpypi
+Como aún está en progreso el desarrollo de la biblioteca solo se ofrece una version de prueba que
+puede ser descargada desde:
 
-``
-pip install -i https://test.pypi.org/simple/ img-preprocessing==0.0.1
-``
+
+[https://github.com/ClaudiaOM/Image_Preprocessing_Library/tree/master/dist](https://github.com/ClaudiaOM/Image_Preprocessing_Library/tree/master/dist)
+
+El codigo fuente se encuentra en 
+
+
+[https://github.com/ClaudiaOM/Image_Preprocessing_Library](https://github.com/ClaudiaOM/Image_Preprocessing_Library)
+
 
 Requiere como dependencias _opencv_ y _numpy_
 
