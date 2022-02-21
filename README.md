@@ -3,7 +3,7 @@
 
 
 
-## img_preprocessing
+## dermoscopy_preprocessing
 
 El objetivo de esta biblioteca es el preprocesamiento de imágenes de dermatoscopio. Se brindan métodos
 para la mejora de contraste, bordes e iluminación. También se incluyen métodos para la eliminación
