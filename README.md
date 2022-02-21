@@ -5,7 +5,7 @@
 
 ## img_preprocessing
 
-El objetivo de esta bibloteca es el preprocesamiento de imágenes de dermatoscopio. Se brindan métodos
+El objetivo de esta biblioteca es el preprocesamiento de imágenes de dermatoscopio. Se brindan métodos
 para la mejora de contraste, bordes e iluminación. También se incluyen métodos para la eliminación
 de artefactos. Su uso es exclusivo para imágenes de dermatoscopio, los resultados en otro tipo
 de imágenes no se han comprobado.
@@ -26,7 +26,7 @@ puede ser descargada desde:
 
 [https://github.com/ClaudiaOM/Image_Preprocessing_Library/tree/master/dist](https://github.com/ClaudiaOM/Image_Preprocessing_Library/tree/master/dist)
 
-El codigo fuente se encuentra en 
+El código fuente se encuentra en 
 
 
 [https://github.com/ClaudiaOM/Image_Preprocessing_Library](https://github.com/ClaudiaOM/Image_Preprocessing_Library)
@@ -36,62 +36,62 @@ Requiere como dependencias _opencv_ y _numpy_
 
 ## Uso
 
-La biblioteca esta dividida en submodulos orientados a la mejora de aspectos especificos que afectan 
-la calidad de una imagen dermatoscopica. 
+La biblioteca está dividida en submódulos orientados a la mejora de aspectos específicos que afectan 
+la calidad de una imagen dermatoscópica. 
 
 ### Eliminación de artefactos
 
 Una de las principales dificultades del procesamiento de imágenes dermatoscópicas es la presencia
-de artefactos (cabellos, reglas de medicion, burbujas de aire, etc) que imposibilitan el análisis de la zona de la piel lesionada. Las funciones de este 
-modulo estan enfocadas en remover los artefactos utilizando distintas tecnicas:
+de artefactos (cabellos, reglas de medición, burbujas de aire, etc) que imposibilitan el análisis de la zona de la piel lesionada. Las funciones de este 
+módulo están enfocadas en remover los artefactos utilizando distintas técnicas:
 
-- Eliminacion de artefactos usando clausura morfologica (morphological_closure_artifact_removal)
+- Eliminación de artefactos usando clausura morfológica (morphological_closure_artifact_removal)
     > El algoritmo consiste en aplicar primeramente a la imagen un filtro de media para eliminar
     ruido y luego aplicar clausura sobre la imagen. Esto se realiza por cada uno de los canales de RGB.
                                                                                                                                                                                                     
-    >    **:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB 
+    >    **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB 
     > 
-    >    **:param** kernel: Nucleo a utilizar en la clausura
+    >    **:param** kernel: Núcleo a utilizar en la clausura
     >
-    >    **:param** blur: True o False: Indica si un filtro de media debe ser aplicado antes de la operacion de clausura morfologica
+    >    **:param** blur: True o False: Indica si un filtro de media debe ser aplicado antes de la operación de clausura morfológica
     >
-    >    **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar la clausura 
+    >    **:return:** Imagen resultante de mezclar cada canal RGB después de aplicar la clausura 
 
 - Dull Razor (dull_razor_artifact_removal)
-    > Se aplica una dilatacion y luego una erosion, luego se calcula la diferencia entre la imagen obtenida y la original.
+    > Se aplica una dilatación y luego una erosión, luego se calcula la diferencia entre la imagen obtenida y la original.
       Se vuelve a realizar una clausura sobre esta diferencia y luego se crea una imagen binaria que será la máscara
-      de los artefactos. Luego se reemplazan los pixeles de la imagen original que pertenezcan a la mascara.
+      de los artefactos. Luego se reemplazan los píxeles de la imagen original que pertenezcan a la máscara.
 
-    >   **:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB 
+    >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB 
     >
-    >   **:param** kernel: Nucleo a utilizar en las operaciones morfologicas Blackhat
+    >   **:param** kernel: Núcleo a utilizar en las operaciones morfológicas Blackhat
     >
-    >   **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar dull razor 
+    >   **:return:** Imagen resultante de mezclar cada canal RGB después de aplicar dull razor 
     >
 - Bothat (bothat_artifact_removal)
     > Se aplica filro para eliminar ruido seguido de fitro de mejora de bordes. Luego se aplica una 
-      la transformacion morfologica bottomhat. Luego se aplica una mejora del contraste y se obtiene luego 
+      la transformación morfológica bottomhat. Luego se aplica una mejora del contraste y se obtiene 
       una imagen binaria que será la máscara
-      de los artefactos. Luego se reemplazan los pixeles de la imagen original que pertenezcan a la mascara.
+      de los artefactos. Luego se reemplazan los píxeles de la imagen original que pertenezcan a la máscara.
 
-    >   **:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB 
+    >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB 
     >
-    >   **:param** kernel: Nucleo a utilizar en las operaciones morfologicas Blackhat
+    >   **:param** kernel: Núcleo a utilizar en las operaciones morfologicas Blackhat
     >
     >   **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar bothat
     >
 - Laplaciano de Gauss (laplasian_of_gaussian)
     >  El metodo Laplaciano de Gauss se aplica a cada canal. Se realiza una dilatacion seguida por una 
-       erosion y luego se mezclan los resultados dde cada canal.
+       erosion y luego se mezclan los resultados de cada canal.
     >
-    >   **:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB
+    >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB
     >
     >   **:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar Laplacian of Gaussian
 - Limpieza de artefactos restantes (clean_remaining_artifacts)
-    > **Metodo aun en desarrollo. Use con cautela.**
-    >   Elimina artefactos restantes utilizando operaciones morfolgicas
+    > **Metodo aún en desarrollo. Use con cautela.**
+    >   Elimina artefactos restantes utilizando operaciones morfológicas
     >
-    >   **:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB
+    >   **:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB
     >
     >   **:return:** Imagen
 
@@ -115,12 +115,12 @@ La mejora del contraste realza los bordes y mejora la calidad de la imagen acent
 diferencia en intensidad del fondo, que serı́a la piel sana, y el frente de la 
 imagen, que serı́a la lesión. Se encuentran los métodos:
 
-- Ecualizacion Clasica del Histograma (equalize_histogram)
-    > Ecualizacion clasica por cada canal
+- Ecualizacion Clásica del Histograma (equalize_histogram)
+    > Ecualizacion clásica por cada canal
     >
-    >**:param** image: Direccion a la imagen o matriz 3D representando una imagen en RGB
+    >**:param** image: Dirección a la imagen o matriz 3D representando una imagen en RGB
     >
-    >**:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar ecualizacion clasica
+    >**:return:** Imagen resultante de mezclar cada canal RGB despues de aplicar ecualización clásica
     >
 - clahe
     > Ecualizacion adaptativa del histograma limitada por el contraste 
@@ -128,21 +128,21 @@ imagen, que serı́a la lesión. Se encuentran los métodos:
     >
     > Aplica CLAHE a cada canal RGB y luego mezcla los resultados.
     >
-    >**:param** image:  Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image:  Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** clip_limit: Umbral para el limite del contraste.
+    >**:param** clip_limit: Umbral para el límite del contraste.
     >
-    >**:param** tile_grid_size: Tamano de la matriz para la ecualizacion del histograma. 
-          La imagen original sera dividida en pedazos rectangulares de igual tamano, este parametro 
+    >**:param** tile_grid_size: Tamaño de la matriz para la ecualización del histograma. 
+          La imagen original será dividida en pedazos rectangulares de igual tamaño, este parámetro 
           define la cantidad de pedazos por fila y por columna.
     >
     >**:return:** Imagen resultante de la mezcla de aplicar el algoritmo CLAHE a cada canal RGB
           y luego mezclar los resultados.
     >
 - automatic_brightness_and_contrast
-    > Ajusta automaticamente el brillo y el contraste de la imagen haciendo uso del histograma
+    > Ajusta automáticamente el brillo y el contraste de la imagen haciendo uso del histograma
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
     >**:param** clip_histogram_percent: Porciento de acumulacion del histograma.
     >
@@ -151,18 +151,18 @@ imagen, que serı́a la lesión. Se encuentran los métodos:
 - window_enhancement
     > Mejora el contraste de una imagen en escala de grises modificando su histograma en un rango.
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** window_min: Rango minimo de la ventana.
+    >**:param** window_min: Rango mínimo de la ventana.
     >
-    >**:param** window_max: Rango maximo de la ventana.
+    >**:param** window_max: Rango máximo de la ventana.
     >
     >**:return:** Imagen en escala de grises con el contraste mejorado.
     >
 - histogram_bimodality
     > Mejora del contraste maximizando la medida de bimodalidad del histograma.
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
     >**:param** weights: Tupla de 3 valores o array de tuplas representando el peso de cada canal RGB.
     La suma de los valores en cada tupla debe ser 1. Ej: [(0.6,0.2,0.2),(0.4,0.4,0.2)]
@@ -170,24 +170,24 @@ imagen, que serı́a la lesión. Se encuentran los métodos:
     >
     >**:return:** Imagen con el contraste mejorado.
 - morphological_contrast_enhancement
-    > Mejora del conttraste usando operaciones morfologicas. Toma la imagen original y le suma 
+    > Mejora del contraste usando operaciones morfológicas. Toma la imagen original y le suma 
         la imagen resultante de aplicar la opercion Top-Hat a la misma y luego le resta la imagen
         resultante de aplicarle Bottom-Hat
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** kernel: Kernel morfologico a utilizar
+    >**:param** kernel: Núcleo a utilizar
     >
     >**:return:** Imagen con el contraste mejorado
     >
 - reverse_morphological_contrast_enhancement
-    > Mejora del conttraste usando operaciones morfologicas. Toma la imagen original y le resta 
-        la imagen resultante de aplicar la opercion Top-Hat a la misma y luego le suma la imagen
+    > Mejora del contraste usando operaciones morfológicas. Toma la imagen original y le resta 
+        la imagen resultante de aplicar la operación Top-Hat a la misma y luego le suma la imagen
         resultante de aplicarle Bottom-Hat
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** kernel: Kernel morfologico a utilizar
+    >**:param** kernel: Núcleo a utilizar
     >
     >**:return:** Imagen con el contraste mejorado
     >
@@ -209,7 +209,7 @@ contrast.histogram_bimodality(image,WEIGTHS)
 contrast.morphological_contrast_enhancement(image,CIRCLE_KERNEL_3X3)
 contrast.reverse_morphological_contrast_enhancement(image,RHOMB_KERNEL_3X3)
 ```
-> **_Nota:_** Aqui solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
+> **_Nota:_** Aquí solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
 
 ### Realce de bordes
 La mejora de bordes permite una mejor visualización de los detalles de la lesión. 
@@ -219,26 +219,26 @@ Se encuentran los métodos:
 - sharpen
     > Filtra los canales RGB de la imagen con un kernel resaltador de bordes.
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** kernel: Kernel resaltador de bordes.
+    >**:param** kernel: Núcleo resaltador de bordes.
     >
     >**:return:** Imagen resultante con los bordes resaltados
 - laplacian
     > Resalta los bordes substrayendo a cada canal RGB su laplaciano 
-      y luego mezcando los resultados.
+      y luego mezclando los resultados.
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
     >**:return:** Imagen resultante con los bordes resaltados
 - unsharp_filter
-    > Resaltado de bordes mediante la obtencion de una imagen con bordes suavizados que se substrae de la
-      imagen original. Luego el resultado es la imagen original mas la imagen obtenida 
+    > Resaltado de bordes mediante la obtención de una imagen con bordes suavizados que se substrae de la
+      imagen original. Luego el resultado es la imagen original más la imagen obtenida 
       anteriormente multiplicada por un factor (k).
    >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** k: Factor de multiplicacion
+    >**:param** k: Factor de multiplicación
     >
     >**:return:** Imagen con los bordes resaltados
 
@@ -255,26 +255,26 @@ edges.sharpen(image, SHARPEN_KERNEL)
 edges.unsharp_filter(image, 2)
 ```
 
-> **_Nota:_** Aqui solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
+> **_Nota:_** Aquí solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
 
 ### Ajuste de iluminación
 
 Se encuentran los métodos:
 
 - mul_log_brightness_enhancement
-    > Mejora del brillo utilizando la multiplicacion en el espacio logaritmico
+    > Mejora del brillo utilizando la multiplicación en el espacio logarítmico
     >
-    >**:param** image:  Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image:  Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** factor: Factor de multiplicacion
+    >**:param** factor: Factor de multiplicación
     >
     >**:return:** Imagen con el brillo de cada uno de los canales RGB mejorado
 - automatic_brightness_and_contrast
-    > Ajusta automaticamente el brillo y el contraste de la imagen haciendo uso del histograma
+    > Ajusta automáticamente el brillo y el contraste de la imagen haciendo uso del histograma
     >
-    >**:param** image: Direccion a la imagen o una lista 3D representando la imagen con sus tres canales.
+    >**:param** image: Dirección a la imagen o una lista 3D representando la imagen con sus tres canales.
     >
-    >**:param** clip_histogram_percent: Porciento de acumulacion del histograma.
+    >**:param** clip_histogram_percent: Porciento de acumulación del histograma.
     >
     >**:return:** Imagen con contraste y brillo mejorados.
     >
@@ -283,15 +283,14 @@ Ejemplo de uso:
 ```python
 from dermoscopy_preprocessing import ilumination
 
-# retorna la imagen con el brillo mejorado utilizando la multiplicacion en el espacio logaritmico
 ilumination.mul_log_brightness_enhancement("path/to/image", factor= 4)
 ilumination.mul_log_brightness_enhancement(image_matrix, factor= 4)
 ilumination.automatic_brightness_and_contrast(image, 15)
 ```
 
-> **_Nota:_** Aqui solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
+> **_Nota:_** Aquí solo le mostramos un ejemplo. Para obtener más información sobre los métodos, consulte el código.
 
-### Utiles
+### Útiles
 
 Se brindan kernels para facilitar el trabajo con los métodos de procesamiento de los cuales se emplearon
 algunos como ejemplo en los metodos anteriores
